@@ -52,6 +52,10 @@ function counter2() {
   return count++;
 }
 
+//in the first code, the count is only defined within the function, and can only be used inside. Also, the counter isn't defined.
+//the second has a clsure, we can tell by what is done. The count returned has to reach outside to see what count is 
+//
+
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -81,19 +85,37 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, innings){
+  let final={}
+  let homeScore= 0
+  let awayScore= 0
+  for (let i=0; i<innings; i++){
+    const inningScore=inningCB;
+    homeScore=homeScore + inningScore.home
+    awayScore=awayScore + inningScore.away
+      final.Home=homeScore
+      final.Away=awayScore
+  }
 }
+return final
+}
+console.log(finalScore(inning(),9))
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inning) {
+  const inningScore ={
+    Home: 0,
+    Away: 0
+  }
+  inningScore.Home = inning();
+  inningScore.Away = inning();
+  return inningScore;
 }
-
+console.log('Task 4', getInningScore);
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -136,8 +158,8 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, innings) {
+  const array={}; 
 }
 
 
